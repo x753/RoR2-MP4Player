@@ -9,12 +9,13 @@ using UnityEngine.UI;
 using RoR2;
 using System.Reflection;
 using UnityEngine.Video;
+using R2API;
 using UnityEngine.Audio;
 
 namespace x753
 {
     [NetworkCompatibility(CompatibilityLevel.NoNeedForSync)]
-    [BepInPlugin("com.x753.MP4Player", "MP4 Player", "1.0.0")]
+    [BepInPlugin("com.x753.MP4Player", "MP4 Player", "1.0.3")]
     public class MP4Player : BaseUnityPlugin
     {
         public static GameObject _mp4Prefab;
@@ -22,6 +23,8 @@ namespace x753
         public static float _volumeSFX = 100f;
         public void Awake()
         {
+            Debug.Log("MP4Player mod awoken.");
+
             // Load in our assets
             Assembly execAssembly = Assembly.GetExecutingAssembly();
             using (Stream stream = execAssembly.GetManifestResourceStream("MP4Player.mp4player"))
